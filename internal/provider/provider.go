@@ -5,6 +5,7 @@ import (
 	"os"
 
 	"github.com/elchika-inc/terraform-provider-manako/internal/client"
+	"github.com/elchika-inc/terraform-provider-manako/internal/resources/monitor"
 	"github.com/hashicorp/terraform-plugin-framework/datasource"
 	"github.com/hashicorp/terraform-plugin-framework/provider"
 	"github.com/hashicorp/terraform-plugin-framework/provider/schema"
@@ -81,7 +82,9 @@ func (p *ManakoProvider) Configure(ctx context.Context, req provider.ConfigureRe
 }
 
 func (p *ManakoProvider) Resources(_ context.Context) []func() resource.Resource {
-	return []func() resource.Resource{}
+	return []func() resource.Resource{
+		monitor.NewMonitorResource,
+	}
 }
 
 func (p *ManakoProvider) DataSources(_ context.Context) []func() datasource.DataSource {
