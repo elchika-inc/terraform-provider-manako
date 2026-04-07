@@ -1,0 +1,17 @@
+---
+page_title: "Manako Provider"
+description: |-
+  The Manako provider manages monitoring resources on the Manako platform.
+---
+
+# Manako Provider
+
+The Manako provider allows you to manage [Manako](https://manako.dev) monitoring resources using Terraform.
+
+## Authentication
+
+Get your API key from the [Manako Dashboard](https://app.manako.dev) under Settings > API Keys.
+
+{{ tffile "examples/provider/provider.tf" }}
+
+{{ .SchemaMarkdown | trimspace }}
