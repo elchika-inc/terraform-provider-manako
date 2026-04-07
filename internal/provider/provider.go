@@ -4,6 +4,7 @@ import (
 	"context"
 	"os"
 
+	"github.com/elchika-inc/terraform-provider-manako/internal/client"
 	"github.com/hashicorp/terraform-plugin-framework/datasource"
 	"github.com/hashicorp/terraform-plugin-framework/provider"
 	"github.com/hashicorp/terraform-plugin-framework/provider/schema"
@@ -74,9 +75,9 @@ func (p *ManakoProvider) Configure(ctx context.Context, req provider.ConfigureRe
 		baseURL = config.BaseURL.ValueString()
 	}
 
-	// Client will be created in a later task and passed via resp.DataSourceData / resp.ResourceData
-	_ = apiKey
-	_ = baseURL
+	c := client.NewClient(baseURL, apiKey, p.version)
+	resp.DataSourceData = c
+	resp.ResourceData = c
 }
 
 func (p *ManakoProvider) Resources(_ context.Context) []func() resource.Resource {
