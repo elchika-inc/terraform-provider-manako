@@ -7,9 +7,7 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework/attr"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/booldefault"
-	"github.com/hashicorp/terraform-plugin-framework/resource/schema/boolplanmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/int64default"
-	"github.com/hashicorp/terraform-plugin-framework/resource/schema/int64planmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/planmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/stringdefault"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/stringplanmodifier"
@@ -400,24 +398,3 @@ func domainConfigAttrTypes() map[string]attr.Type {
 	}
 }
 
-// ---------------------------------------------------------------------------
-// Plan modifier helpers used by computed-only fields
-// ---------------------------------------------------------------------------
-
-func computedStringPlanModifiers() []planmodifier.String {
-	return []planmodifier.String{
-		stringplanmodifier.UseStateForUnknown(),
-	}
-}
-
-func computedBoolPlanModifiers() []planmodifier.Bool {
-	return []planmodifier.Bool{
-		boolplanmodifier.UseStateForUnknown(),
-	}
-}
-
-func computedInt64PlanModifiers() []planmodifier.Int64 {
-	return []planmodifier.Int64{
-		int64planmodifier.UseStateForUnknown(),
-	}
-}
