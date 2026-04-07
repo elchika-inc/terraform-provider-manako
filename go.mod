@@ -1,6 +1,6 @@
 module github.com/elchika-inc/terraform-provider-manako
 
-go 1.26.1
+go 1.25.0
 
 require (
 	github.com/hashicorp/terraform-plugin-framework v1.19.0

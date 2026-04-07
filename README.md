@@ -5,7 +5,7 @@ Manage [Manako](https://manako.dev) monitoring resources with Terraform.
 ## Requirements
 
 - [Terraform](https://developer.hashicorp.com/terraform/downloads) >= 1.0
-- [Go](https://golang.org/doc/install) >= 1.26 (for building from source)
+- [Go](https://golang.org/doc/install) >= 1.25 (for building from source)
 
 ## Usage
 

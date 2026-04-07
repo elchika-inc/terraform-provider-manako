@@ -74,7 +74,7 @@ Note: `isActive` in the API response is an **integer** (0 or 1), not a boolean.
 
 ```
 main.go                              Entry point; injects version via ldflags
-go.mod / go.sum                      Go modules (go 1.26)
+go.mod / go.sum                      Go modules (go 1.25)
 Makefile                             Dev commands (build, test, testacc, lint, install)
 .goreleaser.yml                      Release pipeline: builds for linux/darwin/windows x amd64/arm64
 .github/workflows/ci.yml             CI: build + vet + test + lint on push/PR to main
@@ -106,7 +106,7 @@ internal/
 ### Go
 
 - Module: `github.com/elchika-inc/terraform-provider-manako`
-- Go version: 1.26 (see `go.mod` and CI workflows)
+- Go version: 1.22 (see `go.mod` and CI workflows)
 - Test files: `*_test.go`, package `<pkg>_test` for acceptance tests, `<pkg>` for unit tests
 - Interface compliance asserted at compile time: `var _ resource.Resource = &MonitorResource{}`
 
