@@ -157,11 +157,13 @@ func (c *Client) GetMonitor(id string) (*Monitor, error) {
 	if err != nil {
 		return nil, err
 	}
-	var m Monitor
-	if err := json.Unmarshal(data, &m); err != nil {
+	var resp struct {
+		Monitor Monitor `json:"monitor"`
+	}
+	if err := json.Unmarshal(data, &resp); err != nil {
 		return nil, fmt.Errorf("failed to parse monitor response: %w", err)
 	}
-	return &m, nil
+	return &resp.Monitor, nil
 }
 
 func (c *Client) ListMonitors() ([]Monitor, error) {
@@ -169,11 +171,13 @@ func (c *Client) ListMonitors() ([]Monitor, error) {
 	if err != nil {
 		return nil, err
 	}
-	var monitors []Monitor
-	if err := json.Unmarshal(data, &monitors); err != nil {
+	var resp struct {
+		Monitors []Monitor `json:"monitors"`
+	}
+	if err := json.Unmarshal(data, &resp); err != nil {
 		return nil, fmt.Errorf("failed to parse monitors response: %w", err)
 	}
-	return monitors, nil
+	return resp.Monitors, nil
 }
 
 func (c *Client) CreateMonitor(req CreateMonitorRequest) (*Monitor, error) {
@@ -181,11 +185,13 @@ func (c *Client) CreateMonitor(req CreateMonitorRequest) (*Monitor, error) {
 	if err != nil {
 		return nil, err
 	}
-	var m Monitor
-	if err := json.Unmarshal(data, &m); err != nil {
+	var resp struct {
+		Monitor Monitor `json:"monitor"`
+	}
+	if err := json.Unmarshal(data, &resp); err != nil {
 		return nil, fmt.Errorf("failed to parse monitor response: %w", err)
 	}
-	return &m, nil
+	return &resp.Monitor, nil
 }
 
 func (c *Client) UpdateMonitor(id string, req UpdateMonitorRequest) (*Monitor, error) {
@@ -193,11 +199,13 @@ func (c *Client) UpdateMonitor(id string, req UpdateMonitorRequest) (*Monitor, e
 	if err != nil {
 		return nil, err
 	}
-	var m Monitor
-	if err := json.Unmarshal(data, &m); err != nil {
+	var resp struct {
+		Monitor Monitor `json:"monitor"`
+	}
+	if err := json.Unmarshal(data, &resp); err != nil {
 		return nil, fmt.Errorf("failed to parse monitor response: %w", err)
 	}
-	return &m, nil
+	return &resp.Monitor, nil
 }
 
 func (c *Client) DeleteMonitor(id string) error {
